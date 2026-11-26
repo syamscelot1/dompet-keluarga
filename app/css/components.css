@@ -1,0 +1,126 @@
+/* DompetKeluarga — komponen: kartu, statistik, chart, tabel, dan halaman. */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(60, 50, 20, 0.06);
+}
+.grid { display: grid; gap: 18px; margin-bottom: 18px; }
+.grid.two { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+.page-head { margin-bottom: 20px; }
+.eyebrow { color: var(--green-dark); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 6px; }
+.lede { color: var(--muted); font-size: 1.05rem; max-width: 62ch; }
+
+/* ---- Hero dasbor ---- */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.hero h1 { margin-bottom: 6px; }
+.month-nav { display: flex; align-items: center; gap: 10px; }
+.month-label { font-weight: 800; font-size: 1.1rem; min-width: 150px; text-align: center; }
+
+/* ---- Kartu statistik ---- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px; }
+.stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+.stat-label { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.stat-value { font-size: 1.45rem; font-weight: 800; margin: 4px 0 2px; overflow-wrap: anywhere; }
+.stat-sub { font-size: 0.88rem; color: var(--muted); }
+.stat.good { border-left: 5px solid var(--green); }
+.stat.bad { border-left: 5px solid var(--red); }
+
+/* ---- Donat & legenda ---- */
+.donut-wrap { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.chart.donut { width: 210px; height: 210px; flex: none; }
+.donut-center { font-size: 13px; fill: var(--muted); font-weight: 600; }
+.donut-total { font-size: 17px; fill: var(--ink); font-weight: 800; }
+.legend { list-style: none; margin: 0; padding: 0; flex: 1; min-width: 220px; }
+.legend li { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px dashed var(--line); font-size: 0.95rem; }
+.legend li:last-child { border-bottom: none; }
+.legend-name { flex: 1; }
+.legend-value { font-weight: 700; white-space: nowrap; }
+.legend-pct { color: var(--muted); width: 38px; text-align: right; }
+.dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; flex: none; }
+.swatch { display: inline-block; width: 14px; height: 14px; border-radius: 4px; vertical-align: -2px; margin-right: 4px; }
+.legend-inline { margin-top: 10px; }
+
+/* ---- Progress & bar ---- */
+.pbar { height: 12px; background: #efe9db; border-radius: 999px; overflow: hidden; margin: 10px 0; }
+.pbar-fill { height: 100%; background: var(--green); border-radius: 999px; }
+.pbar.warn .pbar-fill { background: var(--amber); }
+.pbar.over .pbar-fill { background: var(--red); }
+.hbar { height: 10px; background: #efe9db; border-radius: 999px; overflow: hidden; }
+.hbar-fill { height: 100%; border-radius: 999px; }
+.bar-label { font-size: 12px; fill: var(--muted); }
+.bar-grid { stroke: #ece4d3; stroke-width: 1; }
+.bar-axis { stroke: #cfc6b2; stroke-width: 1; }
+.chart.bars { width: 100%; height: auto; display: block; }
+
+/* ---- Daftar mini & insight ---- */
+.mini-list { list-style: none; margin: 10px 0 0; padding: 0; }
+.mini-list li { padding: 6px 0; border-bottom: 1px dashed var(--line); font-size: 0.95rem; }
+.mini-list li:last-child { border-bottom: none; }
+.insight-list { margin: 0; padding-left: 20px; }
+.insight-list li { margin-bottom: 10px; }
+.cat-bars { list-style: none; margin: 0; padding: 0; }
+.cat-bars li { margin-bottom: 14px; }
+.cat-bar-head { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 5px; font-size: 0.95rem; }
+
+/* ---- Tabel transaksi ---- */
+.tx-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.tx-table th, .tx-table td { padding: 9px 8px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.tx-table th { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.tx-table .amount { white-space: nowrap; font-weight: 700; text-align: right; }
+.tx-table th:nth-child(4) { text-align: right; }
+.amount.income { color: var(--green-dark); }
+.amount.expense { color: var(--red); }
+.row-actions { white-space: nowrap; text-align: right; }
+.chip { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.tx-table.compact td { border-bottom: 1px dashed var(--line); }
+
+/* ---- Filter ---- */
+.filters { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.filters label { flex: 1; min-width: 180px; }
+.filter-summary { border-top: 1px solid var(--line); padding-top: 12px; }
+
+/* ---- Anggaran & tujuan ---- */
+.budget-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.budget-head h2 { display: flex; align-items: center; gap: 8px; }
+.budget-pct { font-weight: 800; font-size: 1.15rem; color: var(--green-dark); }
+.budget-pct.over { color: var(--red); }
+.budget-numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0; }
+.budget-numbers dt { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.budget-numbers dd { margin: 2px 0 0; font-weight: 700; overflow-wrap: anywhere; white-space: nowrap; }
+.budget-form, .goal-form { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line); }
+.budget-form label, .goal-form label { flex: 1; min-width: 160px; }
+.goal-card .btn.linklike { margin-top: 10px; color: var(--red); }
+
+/* ---- Kalkulator ---- */
+.calc-results { margin-top: 14px; }
+.calc-row { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px dashed var(--line); font-size: 1.02rem; }
+.calc-row:last-of-type { border-bottom: none; }
+
+/* ---- Kartu tips ---- */
+.tip { background: #fdf3dd; border-color: #ecd9a8; }
+
+/* ---- Responsif: tabel jadi kartu di HP ---- */
+@media (max-width: 720px) {
+  .tx-table thead { display: none; }
+  .tx-table, .tx-table tbody, .tx-table tr, .tx-table td { display: block; width: 100%; }
+  .tx-table tr { border: 1px solid var(--line); border-radius: 10px; padding: 6px 10px; margin-bottom: 10px; background: #fff; }
+  .tx-table td { border-bottom: none; padding: 4px 0; display: flex; justify-content: space-between; gap: 12px; }
+  .tx-table td::before { content: attr(data-label); font-weight: 700; color: var(--muted); font-size: 0.85rem; }
+  .tx-table td.row-actions { justify-content: flex-end; }
+  .tx-table td.row-actions::before { content: ""; }
+  .tx-table.compact tr { border: none; padding: 0; margin-bottom: 0; }
+  .donut-wrap { justify-content: center; }
+  .budget-numbers { grid-template-columns: 1fr 1fr; }
+  .month-label { min-width: 120px; }
+}

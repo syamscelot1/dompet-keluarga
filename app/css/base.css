@@ -1,0 +1,137 @@
+/* DompetKeluarga — dasar: palet, tipografi, dan layout halaman.
+   Palet: hijau dompet (#2e7d5b) di atas krem kertas (#faf6ef),
+   aksen kuning kunyit (#c97a2b), teks tinta gelap (#22302a). */
+
+:root {
+  --green: #2e7d5b;
+  --green-dark: #1f5c41;
+  --green-soft: #e3efe8;
+  --amber: #c97a2b;
+  --red: #c94f5e;
+  --ink: #22302a;
+  --muted: #5f6d66;
+  --paper: #faf6ef;
+  --card: #fffdf8;
+  --line: #e7dfcf;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
+
+h1, h2, h3 { line-height: 1.25; color: var(--ink); }
+h1 { font-size: 1.9rem; margin: 0 0 0.4rem; }
+h2 { font-size: 1.2rem; margin: 0 0 0.7rem; }
+h3 { font-size: 1.05rem; margin: 0 0 0.6rem; }
+
+p { margin: 0 0 0.8rem; }
+a { color: var(--green-dark); }
+a:hover { color: var(--green); }
+
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+.good-text { color: var(--green-dark); font-weight: 700; }
+.bad-text { color: var(--red); font-weight: 700; }
+
+/* ---- Header ---- */
+.site-header {
+  background: var(--green-dark);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 2px 10px rgba(20, 40, 30, 0.25);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 60px;
+  flex-wrap: wrap;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+.brand-mark { width: 32px; height: 32px; flex: none; }
+.brand-name { font-size: 1.25rem; font-weight: 800; letter-spacing: 0.2px; }
+.brand-name em { font-style: normal; color: #f4d48a; }
+.site-nav { display: flex; gap: 2px; flex-wrap: wrap; margin-left: auto; }
+.site-nav a {
+  color: #dcebe2;
+  text-decoration: none;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+.site-nav a:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.site-nav a.active { background: #f4d48a; color: #22301f; font-weight: 700; }
+
+/* ---- Main & footer ---- */
+main#app { padding: 28px 20px 40px; }
+.site-footer { border-top: 1px solid var(--line); background: #f3ecdd; }
+.footer-inner { padding: 22px 20px 30px; display: flex; flex-direction: column; gap: 6px; }
+.footer-inner p { margin: 0; font-size: 0.92rem; color: var(--muted); }
+.footer-inner strong { color: var(--ink); }
+
+/* ---- Tombol & form ---- */
+.btn {
+  display: inline-block;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn:hover { border-color: var(--green); }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.btn.primary { background: var(--green); border-color: var(--green); color: #fff; font-weight: 700; }
+.btn.primary:hover { background: var(--green-dark); }
+.btn.danger { color: var(--red); border-color: #eec9cd; }
+.btn.danger:hover { border-color: var(--red); }
+.btn.small { padding: 5px 10px; font-size: 0.88rem; }
+.btn.linklike { background: none; border: none; padding: 0; text-decoration: underline; }
+
+label { display: flex; flex-direction: column; gap: 4px; font-size: 0.92rem; font-weight: 600; color: var(--ink); }
+input, select {
+  font: inherit;
+  font-size: 1rem;
+  padding: 9px 11px;
+  border: 1px solid #cfc6b2;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  width: 100%;
+}
+input:focus, select:focus { outline: 3px solid rgba(46, 125, 91, 0.35); border-color: var(--green); }
+
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.form-grid .wide { grid-column: 1 / -1; }
+.form-actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.form-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; margin-bottom: 22px; }
+
+/* ---- Responsif ---- */
+@media (max-width: 720px) {
+  body { font-size: 15px; }
+  h1 { font-size: 1.55rem; }
+  .header-inner { gap: 8px; }
+  .site-nav { margin-left: 0; }
+  .site-nav a { padding: 6px 9px; font-size: 0.9rem; }
+  main#app { padding: 20px 14px 32px; }
+  .wrap { padding-left: 14px; padding-right: 14px; }
+}
